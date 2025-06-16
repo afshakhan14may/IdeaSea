@@ -1,72 +1,290 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>IdeaSea — Launch Your Vision</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: #eaf6f6;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      text-align: center;
-      padding: 20px;
-    }
-    h1 {
-      font-size: 2.5em;
-      color: #00303f;
-      margin-bottom: 0.5em;
-    }
-    p {
-      font-size: 1.2em;
-      color: #3c5b6f;
-      max-width: 600px;
-    }
-    form {
-      margin-top: 2em;
-    }
-    input[type="email"] {
-      padding: 10px;
-      font-size: 1em;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      width: 250px;
-      max-width: 90%;
-      margin-right: 10px;
-    }
-    input[type="submit"] {
-      padding: 10px 20px;
-      font-size: 1em;
-      border: none;
-      border-radius: 8px;
-      background-color: #007f7f;
-      color: white;
-      cursor: pointer;
-    }
-    footer {
-      margin-top: 3em;
-      font-size: 0.9em;
-      color: #5c5c5c;
-    }
-  </style>
-</head>
-<body>
-  <h1>Welcome to IdeaSea</h1>
-  <p>Where bold startup ideas rise like waves — ready to meet the world.</p>
-  
-  <!-- 💌 Email Signup Form (MailerLite embedded code below or use your own) -->
-  <form action="https://formspree.io/f/your-form-id" method="POST">
-    <input type="email" name="email" placeholder="Enter your email" required />
-    <input type="submit" value="Join Early Access" />
-  </form>
+import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
+import { Card, CardContent } from "@/components/ui/card"
+import { Lightbulb, Users, TrendingUp, Globe, Mail, FishIcon as Shark } from "lucide-react"
+import Link from "next/link"
 
-  <footer>
-    <p>We don’t ask for the spotlight — we earn it.</p>
-  </footer>
-</body>
-</html>
+export default function IdeaSeaLanding() {
+  return (
+    <div className="flex flex-col min-h-screen bg-gradient-to-r from-slate-800 via-blue-900 to-teal-900">
+      {/* Header */}
+      <header className="px-4 lg:px-6 h-16 flex items-center border-b border-white/20 bg-slate-900/80 backdrop-blur-sm sticky top-0 z-50">
+        <Link href="/" className="flex items-center justify-center gap-2">
+          <img src="/images/ideasea-logo.png" alt="IdeaSea Logo" className="w-8 h-8" />
+          <span className="text-xl font-bold bg-gradient-to-r from-blue-600 to-teal-600 bg-clip-text text-white">
+            IdeaSea
+          </span>
+        </Link>
+        <nav className="ml-auto flex gap-4 sm:gap-6">
+          <Link href="#description" className="text-sm font-medium text-white/80 hover:text-blue-300 transition-colors">
+            About
+          </Link>
+
+          <Link href="#join" className="text-sm font-medium text-white/80 hover:text-blue-300 transition-colors">
+            Join Early
+          </Link>
+        </nav>
+      </header>
+
+      <main className="flex-1">
+        {/* Hero Section */}
+        <section className="w-full py-12 md:py-24 lg:py-32 relative overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-blue-300/10 to-teal-300/10" />
+          <div className="container px-4 md:px-6 relative">
+            <div className="flex flex-col items-center justify-center space-y-8 text-center">
+              <div className="space-y-6">
+                <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none bg-gradient-to-r from-blue-700 via-teal-600 to-cyan-600 bg-clip-text max-w-4xl text-white">
+                  You want the shark?
+                  <br />
+                  Here comes the ocean.
+                </h1>
+                <p className="max-w-[800px] text-white/80 md:text-xl leading-relaxed mx-auto">
+                  The platform where bold ideas surface. Think Reddit and YouTube — but for startup pitches.
+                </p>
+              </div>
+              <div className="w-full max-w-lg space-y-4">
+                <div className="inline-block rounded-full bg-white/10 px-4 py-2 text-sm font-medium text-white">
+                  🚀 Join Early Access
+                </div>
+                <form className="flex flex-col gap-3 sm:flex-row">
+                  <Input
+                    type="email"
+                    placeholder="Enter your email to join early access"
+                    className="flex-1 bg-white/10 border-white/20 text-white placeholder:text-white/60 h-12"
+                  />
+                  <Button
+                    type="submit"
+                    size="lg"
+                    className="bg-white text-slate-800 hover:bg-white/90 font-semibold px-8 h-12"
+                  >
+                    <Mail className="mr-2 h-5 w-5" />
+                    Join the Ocean
+                  </Button>
+                </form>
+                <div className="flex items-center justify-center gap-2 text-sm text-white/70">
+                  <span>Free early access • No spam • Exclusive updates</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Features Section */}
+        <section className="w-full py-12 md:py-24 lg:py-32 bg-slate-900/40">
+          <div className="container px-4 md:px-6">
+            <div className="mx-auto max-w-4xl">
+              <div className="grid gap-8 md:grid-cols-3">
+                <div className="flex flex-col items-center text-center space-y-4">
+                  <div className="text-4xl">⏱️</div>
+                  <h3 className="text-xl font-bold text-white">Timestamped Idea Protection</h3>
+                  <p className="text-white/80 leading-relaxed">Claim ownership publicly</p>
+                </div>
+                <div className="flex flex-col items-center text-center space-y-4">
+                  <div className="text-4xl">💬</div>
+                  <h3 className="text-xl font-bold text-white">Direct Investor Messaging</h3>
+                  <p className="text-white/80 leading-relaxed">No middlemen. Just connections.</p>
+                </div>
+                <div className="flex flex-col items-center text-center space-y-4">
+                  <div className="text-4xl">🌍</div>
+                  <h3 className="text-xl font-bold text-white">Global Discovery</h3>
+                  <p className="text-white/80 leading-relaxed">Get your pitch in front of eyes that matter.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Project Description Section */}
+        <section id="description" className="w-full py-12 md:py-24 lg:py-32 bg-slate-900/50">
+          <div className="container px-4 md:px-6">
+            <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 items-center">
+              <div className="flex flex-col justify-center space-y-6">
+                <div className="space-y-4">
+                  <div className="inline-block rounded-lg bg-teal-100 px-3 py-1 text-sm font-medium text-teal-700">
+                    What is IdeaSea?
+                  </div>
+                  <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl text-white">
+                    A Global Platform Where Startup Ideas Shine
+                  </h2>
+                  <p className="text-white/80 md:text-lg leading-relaxed">
+                    Imagine Reddit and YouTube combined—but only for powerful ideas. IdeaSea is where entrepreneurs
+                    showcase their visions, connect with like-minded innovators, and attract global investors who
+                    believe in transformative concepts.
+                  </p>
+                  <p className="text-white/80 md:text-lg leading-relaxed">
+                    Whether you're a first-time founder with a breakthrough idea or an experienced entrepreneur ready to
+                    scale, IdeaSea provides the stage where your startup can capture the attention it deserves.
+                  </p>
+                </div>
+                <div className="flex items-center gap-4">
+                  <div className="flex items-center gap-2">
+                    <Globe className="h-5 w-5 text-blue-600" />
+                    <span className="text-sm font-medium text-white/90">Global Reach</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <Lightbulb className="h-5 w-5 text-teal-600" />
+                    <span className="text-sm font-medium text-white/90">Powerful Ideas</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <TrendingUp className="h-5 w-5 text-cyan-600" />
+                    <span className="text-sm font-medium text-white/90">Investor Network</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Value Proposition Section */}
+        <section className="w-full py-12 md:py-24 lg:py-32 bg-slate-900/30">
+          <div className="container px-4 md:px-6">
+            <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
+              <div className="space-y-2">
+                <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-white">
+                  Your Platform for Ideas That Matter
+                </h2>
+                <p className="max-w-[900px] text-white/80 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+                  We help you market your ideas, get validation from users, and connect with investors worldwide
+                </p>
+              </div>
+            </div>
+            <div className="mx-auto grid max-w-5xl items-start gap-6 sm:grid-cols-2 md:gap-12 lg:grid-cols-4">
+              <Card className="border-blue-100 bg-slate-800/50 backdrop-blur-sm border-white/10 hover:shadow-lg transition-all hover:scale-105">
+                <CardContent className="flex flex-col items-center space-y-4 p-6">
+                  <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg flex items-center justify-center">
+                    <TrendingUp className="h-6 w-6 text-white" />
+                  </div>
+                  <h3 className="text-xl font-bold text-white">Market Your Ideas</h3>
+                  <p className="text-sm text-white/80 text-center">
+                    Showcase your startup concepts to a global audience of entrepreneurs, innovators, and potential
+                    customers
+                  </p>
+                </CardContent>
+              </Card>
+              <Card className="border-teal-100 bg-slate-800/50 backdrop-blur-sm border-white/10 hover:shadow-lg transition-all hover:scale-105">
+                <CardContent className="flex flex-col items-center space-y-4 p-6">
+                  <div className="w-12 h-12 bg-gradient-to-br from-teal-500 to-teal-600 rounded-lg flex items-center justify-center">
+                    <Users className="h-6 w-6 text-white" />
+                  </div>
+                  <h3 className="text-xl font-bold text-white">Get Validation</h3>
+                  <p className="text-sm text-white/80 text-center">
+                    Receive honest feedback from real users and industry experts to refine and strengthen your concepts
+                  </p>
+                </CardContent>
+              </Card>
+              <Card className="border-cyan-100 bg-slate-800/50 backdrop-blur-sm border-white/10 hover:shadow-lg transition-all hover:scale-105">
+                <CardContent className="flex flex-col items-center space-y-4 p-6 text-center">
+                  <div className="w-12 h-12 bg-gradient-to-br from-cyan-500 to-cyan-600 rounded-lg flex items-center justify-center">
+                    <Globe className="h-6 w-6 text-white" />
+                  </div>
+                  <h3 className="text-xl font-bold text-white">Connect with Investors</h3>
+                  <p className="text-sm text-white/80 text-center">
+                    Access a global network of investors actively seeking the next breakthrough startup opportunity
+                  </p>
+                </CardContent>
+              </Card>
+              <Card className="border-purple-100 bg-slate-800/50 backdrop-blur-sm border-white/10 hover:shadow-lg transition-all hover:scale-105">
+                <CardContent className="flex flex-col items-center space-y-4 p-6 text-center">
+                  <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-purple-600 rounded-lg flex items-center justify-center">
+                    <Globe className="h-6 w-6 text-white" />
+                  </div>
+                  <h3 className="text-xl font-bold text-white">Be the World Change</h3>
+                  <p className="text-sm text-white/80 text-center">
+                    Transform your innovative ideas into world-changing solutions that make a lasting impact on society
+                    and business
+                  </p>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+        </section>
+
+        {/* Platform Overview Section */}
+        <section id="platform" className="w-full py-12 md:py-24 lg:py-32 bg-slate-900/50">
+          <div className="container px-4 md:px-6">
+            <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 items-center">
+              <div className="flex flex-col justify-center space-y-6 order-1 lg:order-2">
+                <div className="space-y-4">
+                  <div className="inline-block rounded-lg bg-gradient-to-r from-blue-100 to-teal-100 px-3 py-1 text-sm font-medium text-blue-700">
+                    Platform Overview
+                  </div>
+                  <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl text-white">
+                    Reddit Meets YouTube
+                    <br />
+                    <span className="bg-gradient-to-r from-blue-600 to-teal-600 bg-clip-text text-transparent">
+                      For Powerful Ideas
+                    </span>
+                  </h2>
+                  <p className="text-white/80 md:text-lg leading-relaxed">
+                    Experience the best of both worlds: engage in meaningful discussions like Reddit, while showcasing
+                    your ideas through compelling video content like YouTube—all focused exclusively on startup
+                    innovation.
+                  </p>
+                </div>
+                <div className="grid grid-cols-2 gap-4"></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Motivational Section */}
+        <section className="w-full py-12 md:py-24 lg:py-32 bg-gradient-to-r from-slate-800 via-blue-900 to-teal-900 relative overflow-hidden">
+          <div className="container px-4 md:px-6 relative">
+            <div className="flex flex-col items-center justify-center space-y-12 text-center">
+              <div className="space-y-8">
+                <div className="space-y-4">
+                  <div className="inline-flex items-center gap-2 rounded-full bg-white/10 px-6 py-3 text-sm font-medium text-white">
+                    <Shark className="h-4 w-4" />
+                    Break Free from the Tank
+                  </div>
+                  <h2 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl text-white max-w-4xl mx-auto">
+                    Don't be in the Tank,
+                    <br />
+                    <span className="bg-gradient-to-r from-blue-300 to-teal-300 bg-clip-text text-transparent">
+                      swim in the ocean
+                    </span>
+                  </h2>
+                </div>
+                <div className="w-24 h-1 bg-gradient-to-r from-blue-400 to-teal-400 mx-auto rounded-full" />
+                <div className="space-y-4">
+                  <h3 className="text-2xl font-bold tracking-tighter sm:text-3xl text-white max-w-3xl mx-auto">
+                    We don't need a spotlight,
+                    <br />
+                    <span className="bg-gradient-to-r from-teal-300 to-cyan-300 bg-clip-text text-white">
+                      we earn it
+                    </span>
+                  </h3>
+                  <p className="max-w-[600px] text-blue-100 md:text-lg mx-auto leading-relaxed">
+                    Why limit yourself to a small tank when you can make waves in the endless ocean of opportunity? Your
+                    ideas deserve a platform as boundless as your ambition.
+                  </p>
+                </div>
+              </div>
+              <div className="flex items-center gap-2 text-white/80"></div>
+            </div>
+          </div>
+        </section>
+
+        {/* Call to Action Section */}
+      </main>
+
+      {/* Footer */}
+      <footer className="flex flex-col gap-2 sm:flex-row py-6 w-full shrink-0 items-center px-4 md:px-6 border-t border-white/20 bg-slate-900/80">
+        <div className="flex items-center gap-2">
+          <p className="text-xs text-white/80">© {new Date().getFullYear()} IdeaSea. Where startup ideas shine.</p>
+        </div>
+        <nav className="sm:ml-auto flex gap-4 sm:gap-6">
+          <Link href="#" className="text-xs hover:underline underline-offset-4 text-white/80 hover:text-blue-300">
+            Privacy Policy
+          </Link>
+          <Link href="#" className="text-xs hover:underline underline-offset-4 text-white/80 hover:text-blue-300">
+            Terms of Service
+          </Link>
+          <Link href="#" className="text-xs hover:underline underline-offset-4 text-white/80 hover:text-blue-300">
+            Contact
+          </Link>
+        </nav>
+      </footer>
+    </div>
+  )
+}
